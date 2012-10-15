@@ -1,3 +1,5 @@
+require "breadcrumb/helper"
+
 module Breadcrumb
   def breadcrumb
     @breadcrumb_helper ||= Breadcrumb::Helper.new
