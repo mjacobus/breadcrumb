@@ -4,4 +4,4 @@ module Breadcrumb
   end
 end
 
-ActionController::Base.send :include, Breadcrumb
+ActionView::Base.send :include, Breadcrumb
