@@ -96,8 +96,4 @@ describe "Breadcrumb::Helper" do
     
     its(:parts) { should eq([['One','/one'],['Two','/two'],['Three','/three']]) }
   end
-  
-  def prepend
-  end
-
 end
