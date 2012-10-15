@@ -1,3 +1,55 @@
 = Breadcrumb
 
-This project rocks and uses MIT-LICENSE.
+= Instalation
+Put the following line in your Gemfile  
+  gem "breadcrumb", :git => "git@github.com:mjacobus/Breadcrumb.git"
+  
+= Usage
+
+Layout:
+  <%= raw breadcrumb %>
+  
+You can add a root path by doing this
+  
+  <%= raw breadcrumb.prepend("Home","/") %>
+  
+In your view (say the uri path is /books/religion/the-holly-bible):
+  <%
+  breadcrumb.add("Books","/books")
+  breadcrumb.add("Religion", books_category_path(@book.category))
+  breadcrumb.add(@book.title)
+  %>
+
+It will render
+  <div class="breadcrumb">
+    <a href="/books">Books</a>
+    <span class="separator"> » </span>
+    <a href="/books/religion">Religion</a>
+    <span class="separator"> » </span>
+    <span>The Holly Bible</span>
+  </div>
+
+You can change the separator
+  breadcrumb.separator = '<span class="separator"> &gt; </span>'
+
+Titleizing
+You can use breadcrumb for creating the page title:
+  <title><%= breadcrumb.titleize %></title>
+  
+which will ouput
+  <title>Books :: Religion :: The Holly Bible</title>
+  
+Titleize accepts block. When using blocks, returning false removes the title part. Returing nil, won't change the behavior. Returning String changes the title part.
+  <title><%= breadcrumb.titleize {|part| "Our Awesome Books" if parts == 'Books' } %></title>
+Ouputs
+  <title>Our Awesome Books :: Religion :: The Holly Bible</title>
+
+Removing the title part
+  <title><%= breadcrumb.titleize {|part| false if part == "Religion" } %></title>
+or
+  <title><%= breadcrumb.titleize {|part, order| false if order == 1 } %></title>
+Outputs
+  <title>Books :: The Holly Bible</title>
+  
+And you can change the title separator:
+  breadcrumb.title_separator = '-'
