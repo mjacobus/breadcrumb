@@ -13,6 +13,12 @@ class Breadcrumb::Helper
     self  
   end
   
+  # prepend elements to the breadcrumb
+  def prepend(label, url = nil)
+    parts.prepend([label, url])
+    self
+  end
+  
   # set title separator
   def separator=(separator)
     @separator = separator

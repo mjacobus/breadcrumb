@@ -85,5 +85,19 @@ describe "Breadcrumb::Helper" do
       end
     end
   end
+  
+  describe "#prepend" do
+    subject { Breadcrumb::Helper.new }
+    before do
+      subject.add     'Three','/three'
+      subject.prepend 'Two','/two'
+      subject.prepend 'One','/one'
+    end
+    
+    its(:parts) { should eq([['One','/one'],['Two','/two'],['Three','/three']]) }
+  end
+  
+  def prepend
+  end
 
 end
