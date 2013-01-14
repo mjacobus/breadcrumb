@@ -7,7 +7,7 @@ Put the following line in your Gemfile
 = Usage
 
 Layout:
-  <%= raw breadcrumb %>
+  <%= breadcrumb %>
 
 You can add a root path by doing this
 

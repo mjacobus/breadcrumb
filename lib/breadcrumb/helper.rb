@@ -39,7 +39,7 @@ module Breadcrumb
         end
       end
 
-      html.length > 1 ? "<div class=\"breadcrumb\">#{html.join(separator)}</div>" : ""
+      html.length > 1 ? raw("<div class=\"breadcrumb\">#{html.join(separator)}</div>") : ""
     end
 
     # Given
@@ -87,6 +87,11 @@ module Breadcrumb
 
     def title_separator
       @title_separator ||= ' :: '
+    end
+
+    # raws the content
+    def raw(content)
+      ApplicationController.helpers.raw(content)
     end
 
   end # end of class
