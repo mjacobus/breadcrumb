@@ -5,7 +5,6 @@ rvm:
 env:
   - DB=sqlite
 script:
-  - RAILS_ENV=test bundle exec rake db:migrate --trace
   - TRAVIS=true bundle exec rspec spec/
 gemfile:
   - Gemfile
