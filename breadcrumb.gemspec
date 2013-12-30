@@ -20,4 +20,6 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency "rspec-rails"
   s.add_development_dependency "guard-rspec"
+  s.add_development_dependency "coveralls"
+  s.add_development_dependency "simplecov"
 end
