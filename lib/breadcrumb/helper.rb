@@ -91,7 +91,7 @@ module Breadcrumb
 
     # raws the content
     def raw(content)
-      ApplicationController.helpers.raw(content)
+      content.html_safe
     end
 
   end # end of class
